@@ -1,6 +1,7 @@
 package msayed.example.testingweek3b
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
@@ -92,6 +93,13 @@ class MainActivity : AppCompatActivity() {
                 } catch(ioe:IOException) {
                     ioe.printStackTrace()
                 }
+            }
+            R.id.buttonSend -> {
+                Toast.makeText(this, "SEND JSON", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this,ViewDataActivity::class.java).apply {
+                    putExtra("mypeoplelist",people.toString())
+                }
+                startActivity(intent)
             }
         }
     }
